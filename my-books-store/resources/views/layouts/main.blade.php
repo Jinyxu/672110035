@@ -7,13 +7,16 @@
 </head>
 <body>
     <header>
-        <h1>Panrawee's Book store - @yield('title')</h1>
+        <h1>Jay's Book store - @yield('title')</h1>
+        
         <nav>
-            <a href="{{ route('products.list') }}">Product</a>
-            <a href="{{ route('products.list') }}">Category</a>
-        </nav>
+    <a href="{{ route('products.list') }}">Products</a> 
+    <a href="{{ route('categories.list') }}">Categories</a>
+</nav>
+
+
          @yield('content')
-         <footer>&#xA9; Copyright Week-03, 2026 Panrawee's Books Store.</footer>
+         <footer>&#xA9; Copyright Week-03, 2026 Jay's Books Store.</footer>
 
 
     </header>

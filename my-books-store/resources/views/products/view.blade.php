@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 
 @section('title', $product['name'])
 @section('content')
@@ -29,13 +29,31 @@ margin-left: auto;
 
     <dl>
         <dt>Code</dt>
-        <dd><em>{{ $product['code']}}</em></dd>
+        <dd>
+
+<a href="{{ route('categories.view',[
+'category'=>$product['catCode']
+]) }}">
+
+<em>
+
+{{ \App\Http\Controllers\CategoryController::CATEGORIES[$product['catCode']]['name'] }}
+
+</em>
+
+</a>
+
+</dd>
 
         <dt>Category</dt>
         <dd><em style="color: blue;">{{$product['catCode']}}</em></dd>
 
         <dt>Name</dt>
         <dd>{{$product['name']}}</dd>
+
+        <dt>Description</dt>
+
+<dd><pre>{{ $product['description'] }}</pre></dd>
 
     </dl>
 </main>

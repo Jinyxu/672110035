@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,5 +14,15 @@ Route::controller(ProductController::class)
     ->group(static function(): void {
         Route::get('/','list')->name('list');
          Route::get('/{product}','view')->name('view');
+
+    });
+    Route::controller(CategoryController::class)
+    ->prefix('/categories')
+    ->name('categories.')
+    ->group(static function (): void {
+
+        Route::get('/', 'list')->name('list');
+
+        Route::get('/{category}', 'view')->name('view');
 
     });

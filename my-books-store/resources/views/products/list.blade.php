@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 
 @section('title', 'Products')
 @section('content')
@@ -50,7 +50,15 @@
     </a>
 </td>
 
-<td>{{ $product['catCode'] }}</td>
+<td>
+    <a href="{{ route('categories.view',[
+        'category'=>$product['catCode']
+    ]) }}">
+        <em>
+            {{ \App\Http\Controllers\CategoryController::CATEGORIES[$product['catCode']]['name'] }}
+        </em>
+    </a>
+</td>
 <td>{{ $product['name'] }}</td>
                     </tr>
                 @endforeach
